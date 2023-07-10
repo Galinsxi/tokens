@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+</head>
+<body>
+
+
+  <div>
+      <button onclick="redirectToToken()">Generate Token</button>
+    <p>By pressing the generate Token you accept the cookies of this website, the cookies are used to store you progress within the website</p>
+  </div>
+
+  <script>
+    function redirectToToken() {
+      window.location.href = '/generatetoken';
+    }
+  </script>
+</body>
+</html>
+
+<style type="text/css">
+  
+  button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:active {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #dd3500;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+</style>

@@ -1,0 +1,11 @@
+        <p>%message% Redirecting in <span id="countdown">5</span> seconds...</p>
+        <script>
+          var seconds = 5;
+          function countdown() {
+            seconds--;
+            document.getElementById("countdown").textContent = seconds;
+            if (seconds <= 0) clearTimeout(intervalId);
+          }
+          var intervalId = setInterval(countdown, 1000);
+          setTimeout(function() { window.location.href = '/home'; }, 5000);
+        </script>

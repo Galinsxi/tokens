@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Token</title>
+</head>
+<body>
+	<div class="card">
+		
+	<div class="discount-card">
+	  <h2>Your Token!</h2>
+	  <p>Use code: <span id="discount-code">%message%</span></p>
+	  <button onclick="copyCode()">Copy Code</button>
+	</div>
+
+	</div>
+<br>
+	<p>Please do not close this tab until you haven't save the token</p>
+
+  <div>
+      <button onclick="deletetoken()">New Token</button>
+    <p>This button will automatically delete all cookies from your browser and allow you to create a new token</p>
+  </div>
+
+  <script>
+    function deletetoken() {
+      window.location.href = '/deletecookie';
+    }
+    function copyCode() {
+      const codeElement = document.getElementById('discount-code');
+      const code = codeElement.innerText;
+
+      navigator.clipboard.writeText(code)
+        .then(() => {
+        })
+        .catch((error) => {
+          console.error('Failed to copy code to clipboard:', error);
+        });
+    }
+
+  </script>
+
+
+</body>
+</html>
+
+<style type="text/css">
+	
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  margin: 0;
+}
+
+.discount-card {
+  width:20%;
+  text-align: center;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+}
+
+#discount-code {
+  font-weight: bold;
+  color: #ff5722;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:active {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #dd3500;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+</style>

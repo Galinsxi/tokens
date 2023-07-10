@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>generatetoken</title>
+</head>
+<body>
+
+  <div>
+      <button onclick="target()">Mine Token</button>
+    <p>Please watch the add until the end you will be redirected back to this page again</p>
+  </div>
+
+  <div>
+      <button onclick="deletetoken()">New Token</button>
+    <p>This will automatically delete all cookies from your browser</p>
+  </div>
+
+  <script>
+    function target() {
+      window.location.href = '/route';
+    }
+
+    function deletetoken() {
+      window.location.href = '/deletecookie';
+    }
+  </script>
+
+
+</body>
+</html>
+
+<style type="text/css">
+  
+  button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:active {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #dd3500;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+</style>
