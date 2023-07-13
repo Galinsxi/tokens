@@ -1,11 +1,42 @@
-        <p>%message% Redirecting in <span id="countdown">5</span> seconds...</p>
-        <script>
-          var seconds = 5;
-          function countdown() {
-            seconds--;
-            document.getElementById("countdown").textContent = seconds;
-            if (seconds <= 0) clearTimeout(intervalId);
-          }
-          var intervalId = setInterval(countdown, 1000);
-          setTimeout(function() { window.location.href = '/home'; }, 5000);
-        </script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Delete Cookies</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/generatetoken">Generate Token</a></li>
+      <li><a href="/burntoken">Token Burn</a></li>
+    </ul>
+  </nav>
+
+  <div class="countdown-container">
+    <div class="countdown-message">
+      %message% Redirecting in
+    </div>
+    <div class="countdown-timer" id="countdown">3</div>
+  </div>
+
+  <script>
+    var seconds = 3;
+    var countdownElement = document.getElementById("countdown");
+
+    function countdown() {
+      seconds--;
+      countdownElement.textContent = seconds;
+      if (seconds <= 0) clearTimeout(intervalId);
+    }
+
+    var intervalId = setInterval(countdown, 400);
+
+    setTimeout(function() {
+      window.location.href = '/home';
+    }, 1200);
+  </script>
+</body>
+</html>

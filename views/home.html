@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Home</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/generatetoken">Generate Token</a></li>
+      <li><a href="/burntoken">Token Burn</a></li>
+    </ul>
+  </nav>
+  <div align="center">
+    <img src="hotellogo.png" alt="Website Logo" class="logo-image">
+  </div>
+    
 
-
-  <div>
-      <button onclick="redirectToToken()">Generate Token</button>
-    <p>By pressing the generate Token you accept the cookies of this website, the cookies are used to store you progress within the website</p>
+  <div align="center">
+    <button class="neumorphism-button button-text" onclick="redirectToToken()">Generate Token</button>
+    <p>By pressing the generate Token, you accept the cookies of this website which will only be used to store your progress within the website. Whenever you click new token, the cookies are automatically deleted.</p>
+    <p>You can find us at:</p>
   </div>
 
   <script>
@@ -18,27 +32,3 @@
   </script>
 </body>
 </html>
-
-<style type="text/css">
-  
-  button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #ff5722;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:active {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #dd3500;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-</style>

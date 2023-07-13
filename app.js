@@ -1,16 +1,5 @@
 const generateUniquePass = require('./generateUniquePass');
-//const generateUniqueCode = require('./generateUniqueCode');
-/*
-generateUniquePass.generateUniquePass(3,10).then((result) => {
-  console.log(result);
-}).catch((error) => {
-  console.error(error);
-});
-*/
-
-const database = require('./database'); // Assuming you have a separate module for database operations
-
-
+const database = require('./database');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const path = require('path');
@@ -19,10 +8,21 @@ const viewsPath = path.join(__dirname, 'views');
 const port = 3000;
 const bodyParser = require('body-parser');
 
-
 app.use(cookieParser());
 app.use(express.static(viewsPath));
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// List of allowed routes
+const allowedRoutes = ['/home', '/token', '/generatetoken', '/route', '/target', '/deletecookie', '/burntoken', '/burn'];
+
+// Middleware to restrict access to specified routes
+app.use((req, res, next) => {
+  if (allowedRoutes.includes(req.path)) {
+    next();
+  } else {
+    res.redirect('/home');
+  }
+});
 
 app.get('/home', (req, res) => {
   const hasCookie = req.cookies && req.cookies.token;
@@ -35,10 +35,8 @@ app.get('/home', (req, res) => {
 });
 
 app.get('/token', (req, res) => {
-  // Get the token from the cookies
   const token = req.cookies && req.cookies.token;
 
-  // Read the file
   fs.readFile(path.join(viewsPath, 'token.html'), 'utf8', (err, data) => {
     if (err) {
       console.error('Error reading file:', err);
@@ -46,35 +44,28 @@ app.get('/token', (req, res) => {
       return;
     }
 
-    // Replace %message% with the token
     const result = data.replace(/%message%/g, token || 'No token found');
 
-    // Send the modified file
     res.send(result);
   });
 });
-
 
 app.get('/generatetoken', async (req, res) => {
   const hasCookie = req.cookies && req.cookies.token;
 
   if (hasCookie) {
-    // Token already exists
-      res.sendFile(path.join(viewsPath, 'generateToken.html'));
+    res.sendFile(path.join(viewsPath, 'generateToken.html'));
   } else {
     try {
       const uniquePass = await generateUniquePass.generateUniquePass(3, 10);
-      res.cookie('token', uniquePass, { maxAge: 3600000 }); // Set the cookie with a maxAge of 1 hour (3600000 milliseconds)
-      
-      console.log('Cookie:', uniquePass); // Print the cookie information on the terminal
-      
-      res.sendFile(path.join(viewsPath, 'generateToken.html'));
+      res.cookie('token', uniquePass, { maxAge: 3600000 });
+      console.log('Cookie:', uniquePass);
+      res.sendFile(path.join(viewsPath, 'generatetoken.html'));
     } catch (error) {
       res.send('Error generating token!');
     }
   }
 });
-
 
 app.get('/route', async (req, res) => {
   const token = req.cookies && req.cookies.token;
@@ -82,12 +73,12 @@ app.get('/route', async (req, res) => {
   if (token) {
     try {
       const nextRoute = await database.nextRoute(token);
-      res.cookie('route', nextRoute, { maxAge: 3600000 }); // Sets a 'route' cookie with a maxAge of 1 hour
-      res.redirect('/target'); // Redirect to "/target" after setting the cookie
+      res.cookie('route', nextRoute, { maxAge: 3600000 });
+      res.redirect('/target');
     } catch (error) {
       console.error('Either token is active now or Error generating new route:', error);
       let token = req.cookies && req.cookies.token;
-      database.activateRoutePass(token)
+      database.activateRoutePass(token);
       res.redirect('/token');
     }
   } else {
@@ -95,14 +86,12 @@ app.get('/route', async (req, res) => {
   }
 });
 
-
-
 app.get('/target', async (req, res) => {
   const route = req.cookies && req.cookies.route;
-  
+
   if (route) {
     try {
-      console.log(route)
+      console.log(route);
       await database.dropRow(route);
       res.redirect('/home');
     } catch (error) {
@@ -114,17 +103,14 @@ app.get('/target', async (req, res) => {
   }
 });
 
-
-
-
 const fs = require('fs');
 
 app.get('/deletecookie', (req, res) => {
   let message;
-  
+
   if (req.cookies) {
     const cookies = Object.keys(req.cookies);
-  
+
     if (cookies.length > 0) {
       cookies.forEach(cookie => {
         res.clearCookie(cookie);
@@ -151,12 +137,7 @@ app.get('/deletecookie', (req, res) => {
 });
 
 app.get('/burntoken', (req, res) => {
-  res.send(`
-    <form action="/burn" method="POST">
-      <input type="text" name="token" placeholder="Enter Token">
-      <button type="submit">Burn</button>
-    </form>
-  `);
+  res.sendFile(path.join(viewsPath, 'revoketoken.html'));
 });
 
 app.post('/burn', async (req, res) => {
@@ -167,10 +148,9 @@ app.post('/burn', async (req, res) => {
       const status = await database.checkStatus(token);
       if (status == true) {
         await database.burnToken(token);
-        res.sendFile(path.join(viewsPath, 'generateToken.html'));
-        //res.send('Token burned successfully!');
+        res.sendFile(path.join(viewsPath, 'tokenrevoked.html'));
       } else {
-        res.send('Token is not valid!');
+        res.sendFile(path.join(viewsPath, 'tokennotvalid.html'));
       }
     } catch (error) {
       console.error('Error burning token:', error);
@@ -181,9 +161,7 @@ app.post('/burn', async (req, res) => {
   }
 });
 
-
-
-
+console.log(__dirname);
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);

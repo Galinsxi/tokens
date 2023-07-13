@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Revoke Token</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/generatetoken">Generate Token</a></li>
+      <li><a href="/burntoken">Token Burn</a></li>
+    </ul>
+  </nav>
+<div align="center">
+	
+  <form action="/burn" method="POST">
+    <input class="neumorphism-input" type="text" name="token" placeholder="Enter Token">
+    <button class="neumorphism-button-revoke" type="submit">Burn</button>
+  </form>
+</div>
+</body>
+</html>

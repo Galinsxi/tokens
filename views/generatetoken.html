@@ -3,19 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>generatetoken</title>
+  <title>Generate Token</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/generatetoken">Generate Token</a></li>
+      <li><a href="/burntoken">Token Burn</a></li>
+    </ul>
+  </nav>
 
-  <div>
-      <button onclick="target()">Mine Token</button>
-    <p>Please watch the add until the end you will be redirected back to this page again</p>
+  <div class="container">
+    <div class="centered-buttons">
+      <button class="neumorphism-button button-text" onclick="target()">Make Reservation / Reveal Token</button>
+      <button class="neumorphism-button button-text" onclick="deletetoken()">New Token/<br>Delete Token</button>
+    </div>
   </div>
 
-  <div>
-      <button onclick="deletetoken()">New Token</button>
-    <p>This will automatically delete all cookies from your browser</p>
-  </div>
+  <p>Please watch the ad until the end. You will be redirected back to this page.</p>
 
   <script>
     function target() {
@@ -26,31 +33,5 @@
       window.location.href = '/deletecookie';
     }
   </script>
-
-
 </body>
 </html>
-
-<style type="text/css">
-  
-  button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #ff5722;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:active {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #dd3500;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-</style>
