@@ -1,0 +1,337 @@
+body {
+  background-color: #502f4f;
+  color: white;
+  margin: 0;
+}
+
+.navbar {
+  background-color: #2e1b2d;
+  position: sticky;
+  top: 0;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navbar li {
+  float: left;
+}
+
+.navbar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar li a:hover {
+  background-color: #502f4f;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+}
+
+.card {
+  width: 500px;
+  height: 300px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.discount-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("card-background.gif");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.discount-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  position: absolute;
+  bottom: 7px;
+  right: 7px;
+  width: 60px;
+  height: 60px;
+  background-image: url("logo.gif");
+  background-size: cover;
+  border-radius: 50%;
+  border: 4px solid #552678;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.heading {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.label {
+  font-size: 16px;
+  text-align: center;
+}
+
+#discount-code {
+  font-weight: bold;
+  color: #a940f7;
+}
+
+.copy-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #552678;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.copy-button:active {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #3b195f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.message {
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.new-token-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #552678;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+
+  border-radius: 6px;
+  background: #502f4f;
+  box-shadow:  8px 8px 16px #221421,
+               -8px -8px 16px #7e4a7d;
+
+}
+
+.new-token-button:active {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #3b195f;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(145deg, #482a47, #563255);
+  box-shadow:  8px 8px 16px #221421,
+               -8px -8px 16px #7e4a7d;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+}
+
+.card {
+  width: 90vh; /* Adjust the desired width of the credit card */
+  height: 50vh; /* Adjust the desired height of the credit card */
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.discount-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("card-background.gif");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.discount-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1; /* Ensure the discount-card is on top */
+
+}
+
+
+.logo {
+  position: absolute;
+  bottom: 7px;
+  right: 7px;
+  width: 60px;
+  height: 60px;
+  background-image: url("logo.gif");
+  background-size: cover;
+  border-radius: 50%;
+  border: 4px solid #552678;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.heading {
+  font-size: 6vh;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.label {
+  font-size: 5vh;
+  text-align: center;
+}
+
+#discount-code {
+  font-weight: bold;
+  color: #a940f7;
+}
+
+.copy-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #552678;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.copy-button:active {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #3b195f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.message {
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.neumorphism-button {
+    width: 40vh;
+  height: 40vh;
+  margin: 10vh;
+  padding: 10px 20px;
+  background: #502f4f;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+
+  border-radius: 50px;
+  background: linear-gradient(145deg, #563255, #482a47);
+  box-shadow:  20px 20px 60px #301c2f,
+               -20px -20px 60px #70426f;
+}
+
+.neumorphism-button:active {
+  border-radius: 50px;
+  background: linear-gradient(145deg, #482a47, #563255);
+  box-shadow:  20px 20px 60px #301c2f,
+               -20px -20px 60px #70426f;
+}
+
+.neumorphism-button-revoke{
+    width: 20vh;
+  height: 6vh;
+  margin: 10vh;
+  padding: 10px 20px;
+  background: #502f4f;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+
+  border-radius: 50px;
+  background: linear-gradient(145deg, #563255, #482a47);
+  box-shadow:  20px 20px 60px #301c2f,
+               -20px -20px 60px #70426f; 
+}
+
+.neumorphism-button-revoke:active{
+  
+}
+
+
+.neumorphism-input {
+    width: 40vh;
+  height: 4vh;
+  margin: 10vh;
+  padding: 10px 20px;
+  background: #502f4f;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+
+  border-radius: 50px;
+  background: linear-gradient(145deg, #563255, #482a47);
+  box-shadow:  20px 20px 60px #301c2f,
+               -20px -20px 60px #70426f;
+}
+
+
+.centered-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-text{
+  font-size: 5vh;
+  color: white;
+}
+
+
